@@ -25,13 +25,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: EstateAgency - v4.10.0
-  * Template URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+ 
 </head>
 
 <body>
@@ -188,7 +182,7 @@
              {% else %}
              class="nav-link"
              {% endif %}
-             href="{% url 'blog' %}"   >
+             href="{% url 'blog' %}">
                 Blog
             </a>
           </li>
@@ -224,6 +218,7 @@
 
     </div>
   </nav><!-- End Header/Navbar -->
+  <main id="main"> 
  {% block content %}
 
  {% endblock %}
@@ -324,19 +319,19 @@
           <nav class="nav-footer">
             <ul class="list-inline">
               <li class="list-inline-item">
-                <a href="#">Home</a>
+                <a href="{% url 'home' %}">Home</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">About</a>
+                <a href="{% url 'home' %}">About</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">Property</a>
+                <a href="{% url 'property' %}">Property</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">Blog</a>
+                <a href="{% url 'blog' %}">Blog</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">Contact</a>
+                <a href="{% url 'contact' %}">Contact</a>
               </li>
             </ul>
           </nav>

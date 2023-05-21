@@ -1,17 +1,8 @@
 from django.contrib import admin
-from  .models import Agent , Testimony , Blog
+from  .models import Testimony  
 from django.utils.html import format_html
 # Register your models here.
 
-class AgentAdmin(admin.ModelAdmin):
-    list_display = ('id','first_name','phone_number','email','is_features')
-    list_filter=('first_name',)
-    list_display_links=('id','first_name',)
-    list_editable = ('is_features',)
-    search_fields = ('first_name',)
-    
-
-admin.site.register(Agent, AgentAdmin)
 
 class TestimonyAdmin(admin.ModelAdmin):
     def thumbmail(self,object):
@@ -22,7 +13,3 @@ class TestimonyAdmin(admin.ModelAdmin):
 
 admin.site.register(Testimony, TestimonyAdmin)
 
-class  BlogAdmin(admin.ModelAdmin):
-    list_display = ('id',)
-
-admin.site.register(Blog, BlogAdmin)
