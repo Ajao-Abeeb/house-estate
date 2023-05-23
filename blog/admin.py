@@ -10,6 +10,7 @@ class  BlogAdmin(admin.ModelAdmin):
     list_display = ('id','title','thumbmail', 'is_features')
     list_display_links = ('id', 'title', 'thumbmail', )
     list_editable = ('is_features',)
+    search_fields = ('title', )
 
 admin.site.register(Blog, BlogAdmin)
 
@@ -18,6 +19,6 @@ admin.site.register(Blog, BlogAdmin)
 
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('name','email','comment','status',)
-    list_editable = ('status', )
+    list_display_links= ( 'status' , 'name')
 admin.site.register(Comment, CommentAdmin)
 

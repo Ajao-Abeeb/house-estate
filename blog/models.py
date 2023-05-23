@@ -16,7 +16,7 @@ class Blog(models.Model):
     twitter_link = models.URLField(max_length=100)
     instagram_link = models.URLField(max_length=100)
     linkedin_link = models.URLField(max_length=100)
-    is_features = models.BooleanField(default=False)
+    is_features = models.BooleanField(default=True)
     created_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
