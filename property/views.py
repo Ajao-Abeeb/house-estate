@@ -2,12 +2,16 @@ from django.shortcuts import render , get_object_or_404
 from .models import Property
 from random import choice
 from agent.models import Agent
+from django.core.paginator import EmptyPage,PageNotAnInteger,Paginator
 
 # Create your views here.
 def property(request):
     property = Property.objects.all()
+    paginator = Paginator(property, 6)
+    page = request.GET.get('page')
+    paged_property = paginator.get_page(page)
     data = {
-        'property':property
+        'property':paged_property
     }
     return render(request, 'property/property.html' , data)
 def propert_single(request, id):

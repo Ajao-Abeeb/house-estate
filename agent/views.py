@@ -1,11 +1,15 @@
 from django.shortcuts import render , get_object_or_404
 from .models import Agent 
 from property.models import Property
+from django.core.paginator import EmptyPage,PageNotAnInteger,Paginator
 # Create your views here.
 def agent (request):
     agent = Agent.objects.all()
+    paginator = Paginator(agent, 6)
+    page = request.GET.get('page')
+    paged_agent = paginator.get_page(page)
     data = {
-        'agent':agent,
+        'agent':paged_agent,
     }
     return render(request, 'agent/agent.html',data)
 

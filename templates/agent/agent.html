@@ -98,28 +98,40 @@
         <div class="row">
           <div class="col-sm-12">
             <nav class="pagination-a">
+              {% if agent.has_other_pages %}
               <ul class="pagination justify-content-end">
-                <li class="page-item disabled">
-                  <a class="page-link" href="#" tabindex="-1">
+              {%  if agent.has_previous %}
+                <li class="page-item ">
+                  <a class="page-link" href="?page={{agent.previous_page_number}}" tabindex="-1">
                     <span class="bi bi-chevron-left"></span>
                   </a>
                 </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item active">
-                  <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">3</a>
-                </li>
+                {% else %}
+                  <li class="page-item disabled">
+                      <a class="page-link" href="#"><i class=" bi bi-chevron-left"></i></a>
+                  </li>
+              {% endif %}
+              {% for i in agent.paginator.page_range %}
+              {% if agent.number == i %}
+                <li class="page-item"><a class="page-link active" href="#">{{i}}</a></li>
+              {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+              {% endif %}
+              {% endfor %}
+              {% if agent.has_next %}
                 <li class="page-item next">
-                  <a class="page-link" href="#">
+                  <a class="page-link" href="?page={{agent.next_page_number}}">
                     <span class="bi bi-chevron-right"></span>
                   </a>
                 </li>
+                {% else %}
+                  <li class="page-item disabled">
+                      <a class="page-link" href="#"><i class=" bi bi-chevron-right"></i></a>
+                  </li>
+                {% endif %}
               </ul>
-            </nav>
+              {% endif %}
+             </nav>
           </div>
         </div>
       </div>

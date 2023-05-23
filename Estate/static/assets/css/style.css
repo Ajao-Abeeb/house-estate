@@ -612,6 +612,9 @@ a:hover {
 .navbar-toggle-box i {
   line-height: 0;
 }
+.active>.page-link, .page-link.active {
+  background: green !important;
+}
 
 /*--------------------------------------------------------------
 # Navbar
