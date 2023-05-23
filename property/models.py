@@ -25,6 +25,7 @@ class Property(models.Model):
     
     title = models.CharField(max_length=255)
     photo = models.ImageField(upload_to='photo/%Y/%m/%d')
+    interior_photo = models.ImageField(upload_to='photo/%Y/%m/%d')
     price = models.IntegerField()
     property_id = models.IntegerField()
     location =models.CharField(max_length=255)

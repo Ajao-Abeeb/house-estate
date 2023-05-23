@@ -1,12 +1,15 @@
 from django.shortcuts import render , get_object_or_404 
 from .models import Blog, Comment 
- 
+from django.core.paginator import EmptyPage,PageNotAnInteger,Paginator
 # Create your views here.
 
 def blog(request):
     blog = Blog.objects.all()
+    paginator = Paginator(blog, 6)
+    page = request.GET.get('page')
+    paged_blog = paginator.get_page(page)
     data = {
-        'blog':blog,
+        'blog':paged_blog,
     }
     return render(request ,'blog/blog_grid.html', data)
 

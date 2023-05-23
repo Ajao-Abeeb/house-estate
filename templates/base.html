@@ -29,6 +29,7 @@
 </head>
 
 <body>
+  
 
   <!-- ======= Property Search Section ======= -->
   <div class="click-closed"></div>
@@ -39,12 +40,12 @@
     </div>
     <span class="close-box-collapse right-boxed bi bi-x"></span>
     <div class="box-collapse-wrap form">
-      <form class="form-a">
+      <form class="form-a" action="{% url 'search' %}"  ></form>
         <div class="row">
           <div class="col-md-12 mb-2">
             <div class="form-group">
               <label class="pb-2" for="Type">Keyword</label>
-              <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword">
+              <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword" name="keyword">
             </div>
           </div>
           <div class="col-md-6 mb-2">
@@ -61,12 +62,10 @@
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
               <label class="pb-2" for="city">City</label>
-              <select class="form-control form-select form-control-a" id="city">
-                <option>All City</option>
-                <option>Alabama</option>
-                <option>Arizona</option>
-                <option>California</option>
-                <option>Colorado</option>
+              <select class="form-control form-select form-control-a" id="city" name="location">
+                {% for city in city_search %}
+                <option value="{{ city }}">{{ city}}</option>
+                {% endfor %}
               </select>
             </div>
           </div>
